@@ -18,6 +18,8 @@ desugar-jdk-libs = "2.1.5"
 room = "2.7.0"
 ksp = "2.0.21-1.0.27"
 roomCommon = "2.6.1"
+roomKtx = "2.6.1"
+roomRuntimeAndroid = "2.7.0-rc02"
 
 [libraries]
 androix-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -37,6 +39,8 @@ room-runtime = { group = "androidx.Room", name = "Room-runtime", version.ref = "
 room-compiler = { group = "androidx.Room", name = "Room-compiler", version.ref = "room" }
 room-ktx = { group = "androidx.Room", name = "Room-ktx", version.ref = "room" }
 androidx-room-common = { group = "androidx.room", name = "room-common", version.ref = "roomCommon" }
+androidx-room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "roomKtx" }
+androidx-room-runtime-android = { group = "androidx.room", name = "room-runtime-android", version.ref = "roomRuntimeAndroid" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

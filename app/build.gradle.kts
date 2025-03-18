@@ -49,6 +49,8 @@ dependencies {
     implementation("com.google.dagger:hilt-android:2.50")
     implementation("androidx.hilt:hilt-navigation-fragment:1.2.0")
     implementation(libs.androidx.room.common)
+    implementation(libs.androidx.room.ktx)
+    implementation(libs.androidx.room.runtime.android)
     ksp("com.google.dagger:hilt-android-compiler:2.50")
 
     implementation("androidx.core:core-ktx:1.15.0")
