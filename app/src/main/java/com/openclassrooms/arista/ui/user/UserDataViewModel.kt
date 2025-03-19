@@ -20,7 +20,7 @@ class UserDataViewModel @Inject constructor(private val getUserUsecase: GetUserU
     }
 
     private fun loadUserData() {
-        val user = getUserUsecase.execute()
+        val user = getUserUsecase.execute(1)
         _userFlow.value = user
     }
 }

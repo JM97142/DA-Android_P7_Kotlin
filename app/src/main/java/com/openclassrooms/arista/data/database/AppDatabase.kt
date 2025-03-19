@@ -11,6 +11,7 @@ import com.openclassrooms.arista.data.dao.UserDtoDao
 import com.openclassrooms.arista.data.entity.ExerciseDto
 import com.openclassrooms.arista.data.entity.SleepDto
 import com.openclassrooms.arista.data.entity.UserDto
+import com.openclassrooms.arista.domain.model.User
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 import java.time.LocalDateTime
@@ -71,6 +72,14 @@ abstract class AppDatabase : RoomDatabase() {
                     SleepDto(
                         startTime = LocalDateTime.now().minusDays(2).atZone(ZoneOffset.UTC).toInstant()
                             .toEpochMilli(), duration = 450, quality = 3
+                    )
+                )
+                // Add User
+                userDtoDao.insertUser(
+                    UserDto(
+                        id = 1,
+                        name = "John Doe",
+                        email = "johndoe@example.com"
                     )
                 )
             }
