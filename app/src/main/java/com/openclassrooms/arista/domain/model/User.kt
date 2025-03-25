@@ -13,7 +13,7 @@ data class User(
 
     companion object {
         fun fromDto(it: UserDto): User {
-            return User(it. id, it.name, it.email)
+            return User(it.id, it.name, it.email)
         }
     }
 }

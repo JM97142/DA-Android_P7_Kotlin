@@ -1,7 +1,6 @@
 package com.openclassrooms.arista.domain.model
 
 import com.openclassrooms.arista.data.entity.ExerciseDto
-import java.time.LocalDateTime
 
 data class Exercise(
     val id: Long? = null,

@@ -1,12 +1,16 @@
 package com.openclassrooms.arista.ui.user
 
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.openclassrooms.arista.domain.model.User
 import com.openclassrooms.arista.domain.usecase.GetUserUsecase
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
@@ -19,8 +23,11 @@ class UserDataViewModel @Inject constructor(private val getUserUsecase: GetUserU
         loadUserData()
     }
 
+
     private fun loadUserData() {
-        val user = getUserUsecase.execute(1)
-        _userFlow.value = user
+        viewModelScope.launch(Dispatchers.IO) {
+            val user = getUserUsecase.execute(1).first()
+            _userFlow.value = user
+        }
     }
 }
