@@ -13,7 +13,6 @@ data class UserDto(
     @ColumnInfo(name = "name")
     var name: String,
 
-
     @ColumnInfo(name = "email")
     var email: String
 )

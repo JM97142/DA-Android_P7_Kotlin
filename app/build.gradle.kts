@@ -46,28 +46,31 @@ android {
 dependencies {
 
     //Hilt
-    implementation("com.google.dagger:hilt-android:2.50")
-    implementation("androidx.hilt:hilt-navigation-fragment:1.2.0")
+    implementation(libs.hilt)
+    implementation(libs.androix.hilt)
     implementation(libs.androidx.room.common)
     implementation(libs.androidx.room.ktx)
     implementation(libs.androidx.room.runtime.android)
-    ksp("com.google.dagger:hilt-android-compiler:2.50")
+    ksp(libs.kapt.hilt)
 
-    implementation("androidx.core:core-ktx:1.15.0")
-    implementation("androidx.appcompat:appcompat:1.7.0")
-    implementation("com.google.android.material:material:1.12.0")
-    implementation("androidx.constraintlayout:constraintlayout:2.2.1")
-    implementation("androidx.activity:activity-ktx:1.10.1")
-    implementation("androidx.fragment:fragment-ktx:1.8.6")
+    implementation(libs.androix.core.ktx)
+    implementation(libs.androidx.appcompat)
+    implementation(libs.google.material)
+    implementation(libs.androidx.constraintlayout)
+    implementation(libs.androidx.activity.ktx)
+    implementation(libs.androidx.fragment.ktx)
 
-    coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.1.5")
+    coreLibraryDesugaring(libs.desugar.jdk.libs)
 
     //Tests
-    testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.test.ext:junit:1.2.1")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.6.1")
+    testImplementation(libs.junit)
+    androidTestImplementation(libs.androidx.junit)
+    androidTestImplementation(libs.androidx.espresso.core)
+    testImplementation(libs.mockito.kotlin)
+    testImplementation(libs.androidx.core.common)
+
 
     //Room
-    ksp("androidx.room:room-compiler:2.6.1")
+    ksp(libs.androidx.room.compiler)
 }
 

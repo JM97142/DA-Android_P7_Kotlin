@@ -18,7 +18,6 @@ import java.time.LocalDateTime
 import java.time.ZoneOffset
 
 @Database(entities = [UserDto::class, SleepDto::class, ExerciseDto::class], version = 1, exportSchema = false)
-abstract class AppDatabase : RoomDatabase() {
     abstract class AppDatabase : RoomDatabase() {
         abstract fun userDtoDao(): UserDtoDao
         abstract fun sleepDtoDao(): SleepDtoDao
@@ -62,6 +61,7 @@ abstract class AppDatabase : RoomDatabase() {
             suspend fun populateDatabase(sleepDao: SleepDtoDao, userDtoDao: UserDtoDao) {
 
 
+                println("populate")
                 sleepDao.insertSleep(
                     SleepDto(
                         startTime = LocalDateTime.now().minusDays(1).atZone(ZoneOffset.UTC).toInstant()
@@ -85,4 +85,3 @@ abstract class AppDatabase : RoomDatabase() {
             }
         }
     }
-}

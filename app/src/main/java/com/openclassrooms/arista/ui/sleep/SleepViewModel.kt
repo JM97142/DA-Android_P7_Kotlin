@@ -1,7 +1,5 @@
 package com.openclassrooms.arista.ui.sleep
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.openclassrooms.arista.domain.model.Sleep
@@ -11,6 +9,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -22,7 +21,7 @@ class SleepViewModel @Inject constructor(private val getAllSleepsUseCase: GetAll
 
     fun fetchSleeps() {
         viewModelScope.launch(Dispatchers.IO) {
-            val sleepList = getAllSleepsUseCase.execute()
+            val sleepList = getAllSleepsUseCase.execute(1).first()
             _sleeps.value = sleepList
         }
     }
